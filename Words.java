@@ -5,11 +5,11 @@ import java.util.Scanner;
 public class Words {
 
 	public static void main(String[] args) {
-		name();
+		System.out.println("Sentence has " + wordCount() + " words");
 
 	}
-	
-    public static void name() {
+	//returns amount of words in sentence
+    public static int wordCount() {
     	 Scanner myObj = new Scanner(System.in);
          System.out.println("Enter Sentence, must contain at least 2 words:");
 
@@ -22,9 +22,6 @@ public class Words {
         		  words++;
               }
          
-         System.out.println("Sentence has " + (words+1) + " words");
-
-         
-         
+         return words+1;
     }
 }

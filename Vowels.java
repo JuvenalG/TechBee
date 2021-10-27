@@ -7,9 +7,9 @@ public class Vowels {
 	public static void main(String[] args) {
 		
 		String loop = "y";
-		
-		while(loop == "y") {
-		vowels();
+		 //loop to repeat program
+		while(loop == "y") {                               //calls method
+			 System.out.println("Your sentence countains " + vowels() + " vowels");  
 		Scanner myObj = new Scanner(System.in);
         System.out.println("Continue? enter Y or N");
 
@@ -23,7 +23,7 @@ public class Vowels {
 		
 	}
 	
-    public static void vowels() {
+    public static int vowels() {
     	
         Scanner myObj = new Scanner(System.in);
         System.out.println("Enter Sentence");
@@ -32,7 +32,7 @@ public class Vowels {
         
         	String letters = "AEIOU";
         	int vowelAmount = 0;
-        
+         //uses nested for loop to checke each vowel letter against each letter in sentence
         for (char ch: sentence.toCharArray()) {
         	  
            for (char vow: letters.toCharArray()) { 
@@ -42,7 +42,7 @@ public class Vowels {
            }
                                              }
                                    
-        System.out.println("Your sentence countains " + vowelAmount + " vowels");  
+         return vowelAmount;
     }
 		
 	

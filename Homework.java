@@ -1,62 +1,67 @@
 package samples;
+import java.util.Arrays;
 import java.util.Scanner;
 
 
 public class Homework {
 	public static void main(String[] args) {
-		slide23();		
-		slide29();
-		slide32();
-				
+		System.out.println(slide23());		
+		System.out.println(slide29());
+		ArrayWithInt doubleValue = slide32();
+	
+		System.out.println("Numbers between selected numbers: " + Arrays.toString(doubleValue.getArrayParameter()));
+		System.out.println("Sum of numbers between added together: " + doubleValue.getSum());		
 }
      
-		static void slide23() {
+		static String slide23() {
 		    System.out.println("---Slide23---");
 			
 			double var = 20;
 			double var2 = 80;
-			
+			String answer;
 			double var3 = (var + var2) * 25;
 			System.out.println(var3);
 			double remainder = var3 % 40;
 
 			if(remainder<=20) {
-				System.out.println("Total was over the limit");
+				answer = "Total was over the limit";
 			}
 				else {
-					System.out.println("Total was under the limit");
-				}			
+					answer = "Total was under the limit";
+				}	
+			return answer;
 		}
 	
 	
 	
 	
 	  /*Note*/
-		static void slide29() {
+		static String slide29() {
 			System.out.println("---Slide29---");
 						
 			char letter = 'A';
-			
+			String answer = null;
 			switch (letter) {
 				case 'A':
-					System.out.println("Apple");
+					answer = "Apple";
 					break;
 				case 'B':
-					System.out.println("Banana");
+					answer = "Banana";
 					break;
 				case 'C':
-					System.out.println("Cherries");
+					answer = "Cherries";
 					break;
 				case 'D':
-					System.out.println("DragonFruit");
+					answer = "Dragonfruit";
 					break;
 				case 'E':
-					System.out.println("ElderBerry");
+					answer = "Elderberry";
 					break;	
 		                   }
+					return answer;
                                  }
 		
-		static void slide32() {
+		static ArrayWithInt slide32() {
 			System.out.println("---Slide32---");
 			
 			Scanner myObj = new Scanner(System.in);
@@ -69,19 +74,29 @@ public class Homework {
 			
 			System.out.println("\n");
 			
-			for(int i = num1+1; i<num2; i++)
-				System.out.println(i);
-		
+			int[] numbersBetween = new int[num2-2];
+			
+			for(int i = num1; i<num2-1; i++)
+			 	numbersBetween[i-1] = i+1;
+			
+			  
+	
+			
 			System.out.println("\n");
 			
 			int sum = 0;
+			int finalSum = 0;
 		while(num1 <= num2-2) {
 			num1++;
 			sum = num1 + sum;
 			if(num1==num2-1)
-				System.out.println("Sum of numbers between selected numbers: " + sum);
+				finalSum = sum;	
 			}
 			
+			ArrayWithInt doubleValue = new ArrayWithInt();
+			doubleValue.setSum(finalSum);
+			doubleValue.setArrayParameter(numbersBetween);
+			return doubleValue;
 		}
 }
 
